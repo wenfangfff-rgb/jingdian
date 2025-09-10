@@ -1,0 +1,82 @@
+# Trae 平台部署配置文件
+name: scenic-spot-booking
+version: 1.0.0
+description: 景点预订管理系统
+
+# 应用配置
+app:
+  type: web
+  port: 3000
+  health_check:
+    path: /api/health
+    interval: 30s
+    timeout: 10s
+    retries: 3
+
+# 构建配置
+build:
+  dockerfile: Dockerfile
+  context: .
+  args:
+    NODE_ENV: production
+
+# 环境变量
+env:
+  NODE_ENV: production
+  PORT: 3000
+  FRONTEND_URL: https://scenic-spot-booking.trae.app
+  JWT_SECRET: ${JWT_SECRET}
+  JWT_EXPIRES_IN: 7d
+  ADMIN_USERNAME: ${ADMIN_USERNAME}
+  ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+  MAX_FILE_SIZE: 5242880
+  UPLOAD_PATH: uploads
+  DATA_PATH: data
+
+# 资源配置
+resources:
+  memory: 512Mi
+  cpu: 0.5
+  disk: 2Gi
+
+# 存储卷
+volumes:
+  - name: uploads
+    path: /app/uploads
+    size: 1Gi
+  - name: data
+    path: /app/data
+    size: 512Mi
+
+# 网络配置
+network:
+  domains:
+    - scenic-spot-booking.trae.app
+  ssl: true
+
+# 扩展配置
+scaling:
+  min_instances: 1
+  max_instances: 3
+  cpu_threshold: 70
+  memory_threshold: 80
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics:
+    - cpu
+    - memory
+    - disk
+    - network
+  logs:
+    retention: 7d
+
+# 备份配置
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # 每天凌晨2点
+  retention: 30d
+  paths:
+    - /app/data
+    - /app/uploads

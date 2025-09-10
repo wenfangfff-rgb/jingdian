@@ -21,6 +21,19 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // 静态文件服务
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// 生产环境下提供前端静态文件
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../public')));
+  
+  // 所有非API路由都返回index.html（支持前端路由）
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) {
+      return next();
+    }
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
+}
+
 // 路由
 const authRoutes = require('../routes/auth');
 const scenicSpotRoutes = require('../routes/scenicSpots');
@@ -32,9 +45,18 @@ app.use('/api/scenic-spots', scenicSpotRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 
-// 健康检查
+// 健康检查端点
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
 // 404处理
