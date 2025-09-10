@@ -1,0 +1,136 @@
+.scenic-spot-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detail-header {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  margin-bottom: 16px;
+}
+
+.detail-card {
+  margin-bottom: 20px;
+}
+
+.image-gallery {
+  margin-bottom: 24px;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.detail-content {
+  padding: 0 8px;
+}
+
+.spot-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1890ff;
+}
+
+.spot-tags {
+  margin-bottom: 24px;
+}
+
+.spot-tags .ant-tag {
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.spot-descriptions .ant-descriptions-item-label {
+  font-weight: 600;
+  color: #595959;
+}
+
+.booking-card {
+  position: sticky;
+  top: 20px;
+}
+
+.spec-selection h4 {
+  margin-bottom: 12px;
+  color: #262626;
+}
+
+.spec-details {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.price-label {
+  font-size: 16px;
+  color: #595959;
+  margin-right: 8px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f5222d;
+}
+
+.spec-description {
+  color: #8c8c8c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.booking-button {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+}
+
+.error-container p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #8c8c8c;
+}
+
+@media (max-width: 768px) {
+  .scenic-spot-detail {
+    padding: 12px;
+  }
+  
+  .spot-title {
+    font-size: 24px;
+  }
+  
+  .detail-image {
+    max-height: 250px;
+  }
+  
+  .booking-card {
+    position: static;
+    margin-top: 20px;
+  }
+}

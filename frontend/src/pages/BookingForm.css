@@ -1,0 +1,80 @@
+.booking-form-container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.booking-form-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.booking-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.booking-summary {
+  flex: 1;
+  min-width: 300px;
+}
+
+.booking-form {
+  flex: 2;
+  min-width: 300px;
+}
+
+.summary-card {
+  height: 100%;
+}
+
+.summary-item {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-item:last-child {
+  margin-bottom: 0;
+}
+
+.summary-label {
+  color: #666;
+}
+
+.summary-value {
+  font-weight: 500;
+}
+
+.summary-value.price {
+  color: #f5222d;
+  font-weight: bold;
+}
+
+.submit-button {
+  margin-top: 16px;
+  height: 48px;
+  font-size: 1.1rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .booking-form-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .booking-content {
+    flex-direction: column;
+  }
+  
+  .booking-summary {
+    margin-bottom: 0;
+  }
+}

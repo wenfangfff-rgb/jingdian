@@ -1,0 +1,68 @@
+.dashboard-container {
+  padding: 24px;
+}
+
+.stat-cards {
+  margin-bottom: 24px;
+}
+
+.ant-card {
+  height: 100%;
+}
+
+.card-action {
+  margin-top: 16px;
+}
+
+.recent-orders-card {
+  margin-bottom: 24px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-title {
+  margin-bottom: 4px;
+}
+
+.order-meta {
+  display: flex;
+  gap: 16px;
+}
+
+.order-price {
+  font-size: 1.1rem;
+}
+
+.empty-list {
+  text-align: center;
+  padding: 24px;
+  color: #999;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+  
+  .order-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

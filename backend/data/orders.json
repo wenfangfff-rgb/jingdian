@@ -1,0 +1,120 @@
+[
+  {
+    "id": "1",
+    "orderNumber": "ORD20240115123456",
+    "scenicSpotId": "1",
+    "scenicSpotName": "黄山风景区",
+    "specification": "成人票",
+    "quantity": 2,
+    "unitPrice": 230,
+    "totalAmount": 460,
+    "visitDate": "2024-02-15",
+    "customerInfo": {
+      "name": "张三",
+      "phone": "13800138001",
+      "email": "zhangsan@example.com",
+      "idCard": "320123199001011234"
+    },
+    "remarks": "希望安排上午时段",
+    "status": "confirmed",
+    "paymentStatus": "paid",
+    "paymentMethod": "微信支付",
+    "transactionId": "wx20240115123456789",
+    "paidAt": "2024-01-15T12:35:00.000Z",
+    "createdAt": "2024-01-15T12:30:00.000Z",
+    "updatedAt": "2024-01-15T12:35:00.000Z"
+  },
+  {
+    "id": "2",
+    "orderNumber": "ORD20240116234567",
+    "scenicSpotId": "3",
+    "scenicSpotName": "故宫博物院",
+    "specification": "学生票",
+    "quantity": 1,
+    "unitPrice": 20,
+    "totalAmount": 20,
+    "visitDate": "2024-02-20",
+    "customerInfo": {
+      "name": "李四",
+      "phone": "13900139002",
+      "email": "lisi@example.com"
+    },
+    "remarks": "",
+    "status": "pending",
+    "paymentStatus": "pending",
+    "createdAt": "2024-01-16T14:30:00.000Z",
+    "updatedAt": "2024-01-16T14:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "orderNumber": "ORD20240117345678",
+    "scenicSpotId": "2",
+    "scenicSpotName": "九寨沟风景区",
+    "specification": "成人票",
+    "quantity": 3,
+    "unitPrice": 169,
+    "totalAmount": 507,
+    "visitDate": "2024-03-01",
+    "customerInfo": {
+      "name": "王五",
+      "phone": "13700137003",
+      "email": "wangwu@example.com",
+      "idCard": "510123198501011234"
+    },
+    "remarks": "家庭出游，有老人和小孩",
+    "status": "completed",
+    "paymentStatus": "paid",
+    "paymentMethod": "支付宝",
+    "transactionId": "alipay20240117345678",
+    "paidAt": "2024-01-17T15:45:00.000Z",
+    "createdAt": "2024-01-17T15:40:00.000Z",
+    "updatedAt": "2024-01-17T16:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "orderNumber": "ORD20240118456789",
+    "scenicSpotId": "5",
+    "scenicSpotName": "西湖风景名胜区",
+    "specification": "游船票",
+    "quantity": 4,
+    "unitPrice": 55,
+    "totalAmount": 220,
+    "visitDate": "2024-02-25",
+    "customerInfo": {
+      "name": "赵六",
+      "phone": "13600136004",
+      "email": "zhaoliu@example.com"
+    },
+    "remarks": "朋友聚会",
+    "status": "confirmed",
+    "paymentStatus": "paid",
+    "paymentMethod": "银行卡",
+    "transactionId": "bank20240118456789",
+    "paidAt": "2024-01-18T16:20:00.000Z",
+    "createdAt": "2024-01-18T16:15:00.000Z",
+    "updatedAt": "2024-01-18T16:20:00.000Z"
+  },
+  {
+    "id": "5",
+    "orderNumber": "ORD20240119567890",
+    "scenicSpotId": "4",
+    "scenicSpotName": "张家界国家森林公园",
+    "specification": "老人票",
+    "quantity": 2,
+    "unitPrice": 124,
+    "totalAmount": 248,
+    "visitDate": "2024-03-10",
+    "customerInfo": {
+      "name": "孙七",
+      "phone": "13500135005",
+      "email": "sunqi@example.com",
+      "idCard": "430123195001011234"
+    },
+    "remarks": "老年人出游，需要特殊照顾",
+    "status": "cancelled",
+    "paymentStatus": "refunded",
+    "adminRemarks": "客户主动取消，已退款",
+    "createdAt": "2024-01-19T17:30:00.000Z",
+    "updatedAt": "2024-01-20T09:00:00.000Z"
+  }
+]

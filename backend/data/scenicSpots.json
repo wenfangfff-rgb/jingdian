@@ -1,0 +1,221 @@
+[
+  {
+    "id": "1",
+    "name": "黄山风景区",
+    "description": "黄山位于安徽省南部，是中国著名的山岳风景区，以奇松、怪石、云海、温泉四绝闻名于世。黄山集中国各大名山的美景于一身，尤其以奇松、怪石、云海、温泉四绝著称于世，是大自然造化中的奇迹，历来享有'五岳归来不看山，黄山归来不看岳'的美誉。",
+    "location": "安徽省黄山市",
+    "price": 230,
+    "category": "自然风光",
+    "specifications": [
+      {
+        "name": "成人票",
+        "price": 230,
+        "description": "适用于18-60岁成人"
+      },
+      {
+        "name": "学生票",
+        "price": 115,
+        "description": "适用于在校学生，需出示学生证"
+      },
+      {
+        "name": "老人票",
+        "price": 115,
+        "description": "适用于60岁以上老人，需出示身份证"
+      }
+    ],
+    "features": ["奇松", "怪石", "云海", "温泉", "索道"],
+    "openingHours": "06:30-16:30",
+    "contactInfo": "0559-5561111",
+    "images": [
+      "/uploads/huangshan1.jpg",
+      "/uploads/huangshan2.jpg",
+      "/uploads/huangshan3.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 1250,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "九寨沟风景区",
+    "description": "九寨沟位于四川省阿坝藏族羌族自治州，是中国第一个以保护自然风景为主要目的的自然保护区。九寨沟以翠湖、叠瀑、彩林、雪峰、藏情、蓝冰'六绝'著称于世，被誉为'童话世界'、'人间仙境'。",
+    "location": "四川省阿坝州",
+    "price": 169,
+    "category": "自然风光",
+    "specifications": [
+      {
+        "name": "成人票",
+        "price": 169,
+        "description": "适用于18-60岁成人"
+      },
+      {
+        "name": "学生票",
+        "price": 84,
+        "description": "适用于在校学生，需出示学生证"
+      },
+      {
+        "name": "儿童票",
+        "price": 84,
+        "description": "适用于6-18岁儿童"
+      }
+    ],
+    "features": ["翠湖", "叠瀑", "彩林", "雪峰", "藏族文化"],
+    "openingHours": "07:00-18:00",
+    "contactInfo": "0837-7739753",
+    "images": [
+      "/uploads/jiuzhaigou1.jpg",
+      "/uploads/jiuzhaigou2.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 980,
+    "createdAt": "2024-01-16T09:00:00.000Z",
+    "updatedAt": "2024-01-16T09:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "故宫博物院",
+    "description": "北京故宫是中国明清两代的皇家宫殿，旧称紫禁城，是中国古代宫廷建筑之精华。故宫以其宏伟的建筑群、丰富的文物收藏和深厚的历史文化内涵而闻名于世，是世界上现存规模最大、保存最为完整的木质结构古建筑群。",
+    "location": "北京市东城区",
+    "price": 60,
+    "category": "历史文化",
+    "specifications": [
+      {
+        "name": "成人票",
+        "price": 60,
+        "description": "适用于成人参观"
+      },
+      {
+        "name": "学生票",
+        "price": 20,
+        "description": "适用于在校学生，需出示学生证"
+      },
+      {
+        "name": "老人票",
+        "price": 30,
+        "description": "适用于60岁以上老人"
+      }
+    ],
+    "features": ["古建筑", "文物展览", "皇家园林", "历史文化"],
+    "openingHours": "08:30-17:00",
+    "contactInfo": "010-85007421",
+    "images": [
+      "/uploads/gugong1.jpg",
+      "/uploads/gugong2.jpg",
+      "/uploads/gugong3.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 2100,
+    "createdAt": "2024-01-17T10:00:00.000Z",
+    "updatedAt": "2024-01-17T10:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "张家界国家森林公园",
+    "description": "张家界国家森林公园是中国第一个国家森林公园，以其独特的石英砂岩峰林地貌著称。公园内有金鞭溪、袁家界、杨家界等著名景区，奇峰异石、古木参天，是电影《阿凡达》中悬浮山的原型地。",
+    "location": "湖南省张家界市",
+    "price": 248,
+    "category": "自然风光",
+    "specifications": [
+      {
+        "name": "成人票",
+        "price": 248,
+        "description": "4天有效期，含环保车"
+      },
+      {
+        "name": "学生票",
+        "price": 124,
+        "description": "适用于在校学生"
+      },
+      {
+        "name": "老人票",
+        "price": 124,
+        "description": "适用于60岁以上老人"
+      }
+    ],
+    "features": ["石英砂岩峰林", "金鞭溪", "天门山", "玻璃栈道"],
+    "openingHours": "07:00-18:00",
+    "contactInfo": "0744-5712189",
+    "images": [
+      "/uploads/zhangjiajie1.jpg",
+      "/uploads/zhangjiajie2.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 756,
+    "createdAt": "2024-01-18T11:00:00.000Z",
+    "updatedAt": "2024-01-18T11:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "西湖风景名胜区",
+    "description": "杭州西湖是中国著名的淡水湖泊，以其秀丽的湖光山色和众多的名胜古迹闻名中外。西湖十景包括苏堤春晓、曲院风荷、平湖秋月、断桥残雪等，每一处都有着深厚的文化底蕴和美丽的传说。",
+    "location": "浙江省杭州市",
+    "price": 0,
+    "category": "自然风光",
+    "specifications": [
+      {
+        "name": "免费参观",
+        "price": 0,
+        "description": "西湖景区免费开放"
+      },
+      {
+        "name": "游船票",
+        "price": 55,
+        "description": "西湖游船票价"
+      },
+      {
+        "name": "雷峰塔",
+        "price": 40,
+        "description": "雷峰塔景点门票"
+      }
+    ],
+    "features": ["湖光山色", "苏堤", "白堤", "雷峰塔", "三潭印月"],
+    "openingHours": "全天开放",
+    "contactInfo": "0571-87977767",
+    "images": [
+      "/uploads/xihu1.jpg",
+      "/uploads/xihu2.jpg",
+      "/uploads/xihu3.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 3200,
+    "createdAt": "2024-01-19T12:00:00.000Z",
+    "updatedAt": "2024-01-19T12:00:00.000Z"
+  },
+  {
+    "id": "6",
+    "name": "泰山风景名胜区",
+    "description": "泰山位于山东省泰安市，是中国五岳之首，有'天下第一山'的美誉。泰山以其雄伟壮丽的自然景观和深厚的文化底蕴著称，历代帝王多在此封禅祭天，留下了丰富的文物古迹。",
+    "location": "山东省泰安市",
+    "price": 127,
+    "category": "自然风光",
+    "specifications": [
+      {
+        "name": "成人票",
+        "price": 127,
+        "description": "适用于成人登山"
+      },
+      {
+        "name": "学生票",
+        "price": 63,
+        "description": "适用于在校学生"
+      },
+      {
+        "name": "索道票",
+        "price": 100,
+        "description": "中天门至南天门索道"
+      }
+    ],
+    "features": ["日出", "云海", "古建筑", "石刻", "封禅文化"],
+    "openingHours": "全天开放",
+    "contactInfo": "0538-8066606",
+    "images": [
+      "/uploads/taishan1.jpg",
+      "/uploads/taishan2.jpg"
+    ],
+    "status": "active",
+    "bookingCount": 890,
+    "createdAt": "2024-01-20T13:00:00.000Z",
+    "updatedAt": "2024-01-20T13:00:00.000Z"
+  }
+]

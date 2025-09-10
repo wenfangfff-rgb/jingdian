@@ -1,0 +1,146 @@
+.order-success-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.success-result {
+  margin-bottom: 32px;
+}
+
+.success-result .ant-result-title {
+  color: #52c41a;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.success-result .ant-result-subtitle {
+  color: #595959;
+  font-size: 16px;
+}
+
+.order-detail-card {
+  margin-bottom: 24px;
+}
+
+.order-detail-card .ant-descriptions-item-label {
+  font-weight: 600;
+  color: #595959;
+  width: 120px;
+}
+
+.order-detail-card .ant-descriptions-item-content {
+  color: #262626;
+}
+
+.order-number {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #1890ff;
+  margin-right: 8px;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f5222d;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.status-pending {
+  background: #fff7e6;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+}
+
+.status-confirmed {
+  background: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.status-cancelled {
+  background: #fff2f0;
+  color: #ff4d4f;
+  border: 1px solid #ffb3b3;
+}
+
+.status-completed {
+  background: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+}
+
+.notice-card {
+  margin-bottom: 32px;
+}
+
+.notice-content {
+  color: #595959;
+  line-height: 1.6;
+}
+
+.notice-content p {
+  margin-bottom: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.home-button {
+  min-width: 120px;
+  height: 40px;
+  font-weight: 600;
+}
+
+.query-button {
+  min-width: 120px;
+  height: 40px;
+  font-weight: 600;
+}
+
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .order-success-page {
+    padding: 12px;
+  }
+  
+  .success-result .ant-result-title {
+    font-size: 20px;
+  }
+  
+  .success-result .ant-result-subtitle {
+    font-size: 14px;
+  }
+  
+  .order-detail-card .ant-descriptions-item-label {
+    width: 100px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-button,
+  .query-button {
+    width: 200px;
+  }
+}

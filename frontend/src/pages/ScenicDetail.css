@@ -1,0 +1,129 @@
+.scenic-detail-container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.scenic-header {
+  margin-bottom: 24px;
+}
+
+.scenic-header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.scenic-location {
+  color: #666;
+  font-size: 1rem;
+}
+
+.scenic-images {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scenic-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.scenic-description {
+  margin-bottom: 24px;
+}
+
+.scenic-description h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.scenic-description h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #1890ff;
+}
+
+.booking-card {
+  position: sticky;
+  top: 84px;
+}
+
+.booking-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.spec-selection {
+  margin-bottom: 24px;
+}
+
+.spec-option {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.spec-option:last-child {
+  border-bottom: none;
+}
+
+.spec-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.spec-name {
+  font-weight: 500;
+}
+
+.spec-price {
+  color: #f5222d;
+  font-weight: bold;
+}
+
+.spec-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 4px 0 0 24px;
+}
+
+.booking-button {
+  height: 48px;
+  font-size: 1.1rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .scenic-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .scenic-description h2,
+  .booking-card h2 {
+    font-size: 1.2rem;
+  }
+  
+  .booking-card {
+    position: static;
+    margin-top: 24px;
+  }
+}

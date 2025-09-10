@@ -1,0 +1,63 @@
+.admin-layout {
+  min-height: 100vh;
+}
+
+.admin-sider {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  z-index: 10;
+}
+
+.admin-logo {
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #001529;
+}
+
+.admin-content-layout {
+  margin-left: 200px;
+  transition: all 0.2s;
+}
+
+.admin-content {
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.logout-button-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logout-button:hover {
+  color: #fff;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .admin-content-layout {
+    margin-left: 80px;
+  }
+}
+
+/* 当侧边栏折叠时 */
+.ant-layout-sider-collapsed + .admin-content-layout {
+  margin-left: 80px;
+}
