@@ -39,7 +39,24 @@ const OrderSuccess: React.FC = () => {
       try {
         setLoading(true);
         const response = await OrderService.getDetail(orderId);
-        setOrder(response.data);
+        // 转换Order类型到OrderDetail类型
+        const orderData = response.data;
+        const orderDetail: OrderDetail = {
+          id: orderData.id,
+          orderNumber: orderData.orderNumber,
+          scenicSpotName: orderData.scenicSpotName,
+          specificationName: orderData.specification.name,
+          customerName: orderData.customerInfo.name,
+          customerPhone: orderData.customerInfo.phone,
+          customerEmail: orderData.customerInfo.email,
+          visitDate: orderData.visitDate,
+          quantity: orderData.quantity,
+          totalPrice: orderData.totalAmount,
+          status: orderData.status,
+          createdAt: orderData.createdAt,
+          specialRequests: orderData.notes
+        };
+        setOrder(orderDetail);
       } catch (error) {
         console.error('获取订单详情失败:', error);
         message.error('获取订单详情失败');

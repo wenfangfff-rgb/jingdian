@@ -14,7 +14,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
@@ -91,8 +91,12 @@ export const specApi = {
 // 订单相关API
 export const orderApi = {
   // 获取所有订单
-  getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Order>> => {
-    const response = await api.get(`/orders?page=${page}&limit=${limit}`);
+  getAll: async (page = 1, limit = 10, filters = {}): Promise<PaginatedResponse<Order>> => {
+    const baseParams = { page: page.toString(), limit: limit.toString() };
+    const filteredEntries = Object.entries(filters).filter(([_, v]) => v != null && v !== '');
+    const stringEntries = filteredEntries.map(([k, v]) => [k, String(v)]);
+    const params = new URLSearchParams({ ...baseParams, ...Object.fromEntries(stringEntries) });
+    const response = await api.get(`/orders?${params}`);
     return response.data;
   },
   
@@ -117,6 +121,26 @@ export const orderApi = {
   // 删除订单
   delete: async (id: string): Promise<void> => {
     await api.delete(`/orders/${id}`);
+  },
+
+  // 导出订单
+  exportOrders: async (filters = {}) => {
+    const filteredEntries = Object.entries(filters).filter(([_, v]) => v != null && v !== '');
+    const stringEntries = filteredEntries.map(([k, v]) => [k, String(v)]);
+    const params = new URLSearchParams(Object.fromEntries(stringEntries));
+    const response = await api.get(`/orders/export?${params}`, {
+      responseType: 'blob'
+    });
+    
+    // 创建下载链接
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `orders_${new Date().toISOString().split('T')[0]}.xlsx`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
   },
 };
 

@@ -33,7 +33,7 @@ const AdminLogin: React.FC = () => {
         
         <Form
           layout="vertical"
-          onFinish={handleSubmit}
+          onFinish={onFinish}
           requiredMark={false}
         >
           <Form.Item

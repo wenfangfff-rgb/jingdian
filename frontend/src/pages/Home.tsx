@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Button, Input, Select, Spin, message } from 'antd';
+import { Card, Row, Col, Button, Input, Select, Spin, message, Pagination, Empty } from 'antd';
 import { SearchOutlined, EnvironmentOutlined, StarOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import { ScenicSpotService, ScenicSpot } from '../services/scenicSpotService';
@@ -16,6 +16,11 @@ const Home: React.FC = () => {
   const [filteredSpots, setFilteredSpots] = useState<ScenicSpot[]>([]);
   const [searchKeyword, setSearchKeyword] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [pagination, setPagination] = useState({
+    current: 1,
+    pageSize: 12,
+    total: 0
+  });
 
   const categories = [
     '自然风光',
@@ -75,6 +80,30 @@ const Home: React.FC = () => {
     return `¥${price}`;
   };
 
+  const handlePageChange = (page: number, pageSize?: number) => {
+    setPagination(prev => ({
+      ...prev,
+      current: page,
+      pageSize: pageSize || prev.pageSize
+    }));
+  };
+
+  // 获取当前页显示的数据
+  const getCurrentPageData = () => {
+    const startIndex = (pagination.current - 1) * pagination.pageSize;
+    const endIndex = startIndex + pagination.pageSize;
+    return filteredSpots.slice(startIndex, endIndex);
+  };
+
+  // 更新分页总数
+  useEffect(() => {
+    setPagination(prev => ({
+      ...prev,
+      total: filteredSpots.length,
+      current: 1
+    }));
+  }, [filteredSpots]);
+
   return (
     <div className="home-container container">
       <div className="banner">
@@ -122,9 +151,9 @@ const Home: React.FC = () => {
         ) : filteredSpots.length > 0 ? (
           <>
             <Row gutter={[24, 24]}>
-              {filteredSpots.map((scenic) => (
-                <Col xs={24} sm={12} md={8} lg={6} key={scenic._id}>
-                  <Link to={`/scenic/${scenic._id}`}>
+              {getCurrentPageData().map((scenic) => (
+                <Col xs={24} sm={12} md={8} lg={6} key={scenic.id}>
+                  <Link to={`/scenic/${scenic.id}`}>
                     <Card
                       hoverable
                       className="scenic-card"

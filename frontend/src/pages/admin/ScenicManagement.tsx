@@ -8,7 +8,7 @@ import {
   ExclamationCircleOutlined
 } from '@ant-design/icons';
 import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
-import { scenicApi } from '../../api';
+import { scenicApi, specApi } from '../../api';
 import { ScenicSpot, ScenicSpec } from '../../types';
 import { formatDate, formatPrice } from '../../utils';
 import AdminLayout from '../../components/AdminLayout';
@@ -51,7 +51,7 @@ const ScenicManagement: React.FC = () => {
   // 获取规格列表
   const fetchSpecList = async (scenicId: string) => {
     try {
-      const specs = await scenicApi.getSpecs(scenicId);
+      const specs = await specApi.getByScenicId(scenicId);
       setSpecList(specs);
     } catch (error) {
       console.error('获取规格列表失败:', error);
@@ -80,7 +80,7 @@ const ScenicManagement: React.FC = () => {
         name: record.name,
         description: record.description,
         location: record.location,
-        basePrice: record.basePrice,
+        basePrice: record.price,
       });
       
       // 如果有图片，设置文件列表
@@ -88,7 +88,7 @@ const ScenicManagement: React.FC = () => {
         const files = record.images.map((url, index) => ({
           uid: `-${index}`,
           name: `image-${index}.jpg`,
-          status: 'done',
+          status: 'done' as const,
           url,
         }));
         setFileList(files);
@@ -119,7 +119,7 @@ const ScenicManagement: React.FC = () => {
       
       if (currentScenic) {
         // 更新景点
-        await scenicApi.update(currentScenic.id, {
+        await scenicApi.update(currentScenic._id, {
           ...values,
           images: images.length > 0 ? images : currentScenic.images,
         });
@@ -161,7 +161,7 @@ const ScenicManagement: React.FC = () => {
   // 处理规格管理
   const handleManageSpecs = (record: ScenicSpot) => {
     setCurrentScenic(record);
-    fetchSpecList(record.id);
+    fetchSpecList(record._id);
     setActiveTab('2');
   };
 
@@ -198,17 +198,21 @@ const ScenicManagement: React.FC = () => {
       const values = await specForm.validateFields();
       
       if (editingSpec) {
-        // 更新规格
-        await scenicApi.updateSpec(currentScenic.id, editingSpec.id, values);
-        message.success('规格更新成功');
+          // 更新规格
+          await specApi.update(editingSpec._id, values);
+          message.success('规格更新成功');
       } else {
         // 添加规格
-        await scenicApi.createSpec(currentScenic.id, values);
+        const specData = {
+          ...values,
+          scenicId: currentScenic._id
+        };
+        await specApi.create(specData);
         message.success('规格添加成功');
       }
       
       setSpecModalVisible(false);
-      fetchSpecList(currentScenic.id);
+      fetchSpecList(currentScenic._id);
     } catch (error) {
       console.error('提交失败:', error);
       message.error('操作失败，请重试');
@@ -220,9 +224,9 @@ const ScenicManagement: React.FC = () => {
     if (!currentScenic) return;
     
     try {
-      await scenicApi.deleteSpec(currentScenic.id, specId);
+      await specApi.delete(specId);
       message.success('规格删除成功');
-      fetchSpecList(currentScenic.id);
+      fetchSpecList(currentScenic._id);
     } catch (error) {
       console.error('删除失败:', error);
       message.error('删除失败，请重试');
@@ -275,7 +279,7 @@ const ScenicManagement: React.FC = () => {
           </Button>
           <Popconfirm
             title="确定要删除这个景点吗？"
-            onConfirm={() => handleDelete(record.id)}
+            onConfirm={() => handleDelete(record._id)}
             okText="确定"
             cancelText="取消"
             icon={<ExclamationCircleOutlined style={{ color: 'red' }} />}
@@ -327,7 +331,7 @@ const ScenicManagement: React.FC = () => {
           </Button>
           <Popconfirm
             title="确定要删除这个规格吗？"
-            onConfirm={() => handleDeleteSpec(record.id)}
+            onConfirm={() => handleDeleteSpec(record._id)}
             okText="确定"
             cancelText="取消"
             icon={<ExclamationCircleOutlined style={{ color: 'red' }} />}

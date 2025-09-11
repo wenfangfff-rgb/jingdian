@@ -142,7 +142,7 @@ const AdminScenicSpots: React.FC = () => {
       // 添加基本信息
       Object.keys(values).forEach(key => {
         if (key === 'features') {
-          formData.append(key, JSON.stringify(values.features.split(',')));
+          formData.append(key, JSON.stringify(values.features));
         } else if (key === 'specifications') {
           formData.append(key, JSON.stringify(values.specifications));
         } else {
@@ -272,7 +272,7 @@ const AdminScenicSpots: React.FC = () => {
       title: '操作',
       key: 'actions',
       width: 150,
-      render: (_, record: ScenicSpot) => (
+      render: (_: any, record: ScenicSpot) => (
         <Space>
           <Button
             type="link"

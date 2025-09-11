@@ -153,7 +153,7 @@ const OrderManagement: React.FC = () => {
           </Button>
           <Popconfirm
             title="确定要删除这个订单吗？"
-            onConfirm={() => handleDelete(record.id)}
+            onConfirm={() => handleDelete(record._id)}
             okText="确定"
             cancelText="取消"
             icon={<ExclamationCircleOutlined style={{ color: 'red' }} />}
@@ -250,7 +250,7 @@ const OrderManagement: React.FC = () => {
             <div className="order-detail">
               <div className="detail-item">
                 <span className="detail-label">订单号：</span>
-                <span className="detail-value">{currentOrder.id}</span>
+                <span className="detail-value">{currentOrder._id}</span>
               </div>
               <div className="detail-item">
                 <span className="detail-label">景点名称：</span>
@@ -278,7 +278,7 @@ const OrderManagement: React.FC = () => {
               </div>
               <div className="detail-item">
                 <span className="detail-label">备注：</span>
-                <span className="detail-value">{currentOrder.remark || '无'}</span>
+                <span className="detail-value">无</span>
               </div>
             </div>
           )}

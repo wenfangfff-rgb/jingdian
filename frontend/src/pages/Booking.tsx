@@ -45,7 +45,8 @@ const Booking: React.FC = () => {
         setScenicSpot(spot);
         
         // 找到选中的规格
-        const spec = spot.specifications?.find(s => s.id === specId);
+        const specIndex = parseInt(specId);
+        const spec = spot.specifications?.[specIndex];
         if (!spec) {
           message.error('门票规格不存在');
           navigate(`/scenic-spot/${id}`);
@@ -76,15 +77,16 @@ const Booking: React.FC = () => {
       setSubmitting(true);
       
       const orderData = {
-        scenicSpotId: scenicSpot.id,
-        specificationId: selectedSpec.id,
-        customerName: values.customerName,
-        customerPhone: values.customerPhone,
-        customerEmail: values.customerEmail,
-        visitDate: values.visitDate.format('YYYY-MM-DD'),
+        scenicSpotId: id!,
+        specificationIndex: parseInt(searchParams.get('spec') || '0'),
         quantity: values.quantity,
-        totalPrice: selectedSpec.price * values.quantity,
-        specialRequests: values.specialRequests
+        customerInfo: {
+          name: values.customerName,
+          phone: values.customerPhone,
+          email: values.customerEmail
+        },
+        visitDate: values.visitDate.format('YYYY-MM-DD'),
+        notes: values.specialRequests
       };
       
       const response = await OrderService.create(orderData);

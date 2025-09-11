@@ -39,14 +39,21 @@ const OrderQuery: React.FC = () => {
 
     try {
       setLoading(true);
-      const response = await OrderService.search({
-        orderNumber: values.orderNumber,
-        customerPhone: values.customerPhone
-      });
-      setOrders(response.data);
+      let orders: OrderInfo[] = [];
+      
+      if (values.orderNumber) {
+        const response = await OrderService.searchByOrderNumber(values.orderNumber);
+        orders = [response.data as any];
+      } else {
+        // 如果只有手机号，使用getList方法搜索
+        const response = await OrderService.getList({ search: values.customerPhone });
+        orders = response.data as any;
+      }
+      
+      setOrders(orders);
       setSearched(true);
       
-      if (response.data.length === 0) {
+      if (orders.length === 0) {
         message.info('未找到相关订单');
       }
     } catch (error) {

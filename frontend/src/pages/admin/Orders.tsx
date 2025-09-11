@@ -190,7 +190,7 @@ const AdminOrders: React.FC = () => {
       title: '客户信息',
       key: 'customer',
       width: 150,
-      render: (_, record: Order) => (
+      render: (_: any, record: Order) => (
         <div>
           <div>{record.customerInfo.name}</div>
           <div style={{ fontSize: '12px', color: '#666' }}>
@@ -251,7 +251,7 @@ const AdminOrders: React.FC = () => {
       key: 'actions',
       width: 180,
       fixed: 'right' as const,
-      render: (_, record: Order) => (
+      render: (_: any, record: Order) => (
         <Space>
           <Button
             type="link"

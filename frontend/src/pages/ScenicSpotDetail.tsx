@@ -24,7 +24,7 @@ const ScenicSpotDetail: React.FC = () => {
         setScenicSpot(response.data);
         // 默认选择第一个规格
         if (response.data.specifications && response.data.specifications.length > 0) {
-          setSelectedSpec(response.data.specifications[0].id);
+          setSelectedSpec('0');
         }
       } catch (error) {
         console.error('获取景点详情失败:', error);
@@ -47,7 +47,8 @@ const ScenicSpotDetail: React.FC = () => {
 
   const getSelectedSpecification = () => {
     if (!scenicSpot || !selectedSpec) return null;
-    return scenicSpot.specifications?.find(spec => spec.id === selectedSpec);
+    const specIndex = parseInt(selectedSpec);
+    return scenicSpot.specifications?.[specIndex];
   };
 
   if (loading) {
@@ -113,23 +114,21 @@ const ScenicSpotDetail: React.FC = () => {
                   {scenicSpot.location}
                 </Tag>
                 <Tag color="green">{scenicSpot.category}</Tag>
-                {scenicSpot.rating && (
-                  <Tag color="orange">评分: {scenicSpot.rating}</Tag>
-                )}
+
               </div>
 
               <Descriptions title="景点信息" column={1} className="spot-descriptions">
                 <Descriptions.Item label="景点介绍">
                   {scenicSpot.description}
                 </Descriptions.Item>
-                <Descriptions.Item label="开放时间" icon={<ClockCircleOutlined />}>
-                  {scenicSpot.openingHours || '全天开放'}
+                <Descriptions.Item label="开放时间">
+                  <ClockCircleOutlined /> {scenicSpot.openingHours || '全天开放'}
                 </Descriptions.Item>
-                <Descriptions.Item label="联系电话" icon={<PhoneOutlined />}>
-                  {scenicSpot.contactPhone || '暂无'}
+                <Descriptions.Item label="联系电话">
+                  <PhoneOutlined /> {scenicSpot.contactInfo || '暂无'}
                 </Descriptions.Item>
                 <Descriptions.Item label="详细地址">
-                  {scenicSpot.address || scenicSpot.location}
+                  {scenicSpot.location}
                 </Descriptions.Item>
               </Descriptions>
             </div>
@@ -146,8 +145,8 @@ const ScenicSpotDetail: React.FC = () => {
                 style={{ width: '100%', marginBottom: 16 }}
                 placeholder="请选择门票规格"
               >
-                {scenicSpot.specifications?.map(spec => (
-                  <Option key={spec.id} value={spec.id}>
+                {scenicSpot.specifications?.map((spec, index) => (
+                  <Option key={index} value={index.toString()}>
                     {spec.name} - ¥{spec.price}
                   </Option>
                 ))}

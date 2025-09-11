@@ -11,7 +11,7 @@ const apiClient: AxiosInstance = axios.create({
 
 // 请求拦截器
 apiClient.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config) => {
     // 添加认证token
     const token = localStorage.getItem('admin_token');
     if (token && config.headers) {
