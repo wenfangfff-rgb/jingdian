@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: scenic-spot-booking-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: MAX_FILE_SIZE
+        value: 5242880
+      - key: UPLOAD_PATH
+        value: uploads
+      - key: DATA_PATH
+        value: data
+      - key: FRONTEND_URL
+        value: https://your-frontend-domain.vercel.app
+    healthCheckPath: /api/health
