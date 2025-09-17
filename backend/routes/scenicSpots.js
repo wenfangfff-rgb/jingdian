@@ -36,7 +36,7 @@ router.get('/',
   }
 );
 
-// 获取热门景点（公开接口）
+// 获取热门景点（公开接口）- 必须在 /:id 路由之前定义
 router.get('/popular', (req, res) => {
   try {
     const limit = parseInt(req.query.limit) || 6;
@@ -48,7 +48,7 @@ router.get('/popular', (req, res) => {
   }
 });
 
-// 获取单个景点详情（公开接口）
+// 获取单个景点详情（公开接口）- 必须在具体路由之后定义
 router.get('/:id', (req, res) => {
   try {
     const spot = ScenicSpot.getById(req.params.id);
